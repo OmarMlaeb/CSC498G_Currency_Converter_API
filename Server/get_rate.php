@@ -9,6 +9,8 @@ curl_setopt($ch, CURLOPT_URL, 'https://lirarate.org/wp-json/lirarate/v2/rates?cu
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // return the transfer as a string
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // tell cURL that it should follow any redirects
 
+$data = curl_exec($ch); // $data contains the output string
 
+curl_close($ch); // close curl resource to free up system resources
 
 ?>
