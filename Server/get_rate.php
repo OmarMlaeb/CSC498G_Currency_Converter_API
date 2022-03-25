@@ -4,4 +4,11 @@
 
 // https://lirarate.org/wp-json/lirarate/v2/rates?currency=LBP (the url of the api that the website is calling to get the rate)
 
+$ch = curl_init(); // create curl resource using curl function
+curl_setopt($ch, CURLOPT_URL, 'https://lirarate.org/wp-json/lirarate/v2/rates?currency=LBP'); // set the live url api of the website
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // return the transfer as a string
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // tell cURL that it should follow any redirects
+
+
+
 ?>
