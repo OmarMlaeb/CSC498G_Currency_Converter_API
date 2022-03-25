@@ -17,4 +17,8 @@ $string = substr($data, -8, -3); // get the last number by removing the last thr
 
 header("refresh: 5; url = http://localhost/Currency_Converter_Server/get_rate.php"); // auto refresh local server every 5 seconds
 
+$html_to_json = json_decode($string, true); // convert the html string to json
+
+echo json_encode($html_to_json); // return the rate to the font end as json
+
 ?>
