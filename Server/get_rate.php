@@ -15,4 +15,6 @@ curl_close($ch); // close curl resource to free up system resources
 
 $string = substr($data, -8, -3); // get the last number by removing the last three elements of the string and getting the 8 digit number
 
+header("refresh: 5; url = http://localhost/Currency_Converter_Server/get_rate.php"); // auto refresh local server every 5 seconds
+
 ?>
