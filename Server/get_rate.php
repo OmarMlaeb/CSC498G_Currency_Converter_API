@@ -19,7 +19,7 @@ header("refresh: 5; url = http://localhost/Currency_Converter_Server/get_rate.ph
 
 $rate = intval($string); // cast the string to integer
 
-$html_to_json = json_decode($string, true); // convert the html string to json
+$html_to_json = json_decode($rate, true); // convert the html integer to json
 
 echo json_encode($html_to_json); // return the rate to the font end as json
 
