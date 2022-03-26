@@ -8,4 +8,7 @@ $converted_from = $_POST["converted_from"]; // list that contains all the string
 $converted_to = $_POST["converted_to"]; // list that contains all the strings (USD or LBP) sent from the front-end
 $converted_amount = $_POST["converted_amount"]; // list that contains all the converted amounts sent from the front-end
 
+$query = $mysqli->prepare("INSERT INTO conversions (amount, rate, converted_from, converted_to, converted_amount) VALUES (?, ?, ?, ?, ?)"); // to insert values to the table "conversions" that the user will be converting on the app 
+// the values are "?" to prevent sql injections
+
 ?>
