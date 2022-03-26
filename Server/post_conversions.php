@@ -11,4 +11,6 @@ $converted_amount = $_POST["converted_amount"]; // list that contains all the co
 $query = $mysqli->prepare("INSERT INTO conversions (amount, rate, converted_from, converted_to, converted_amount) VALUES (?, ?, ?, ?, ?)"); // to insert values to the table "conversions" that the user will be converting on the app 
 // the values are "?" to prevent sql injections
 
+$query->bind_param("dissd", $amount, $rate, $converted_from, $converted_to, $converted_amount); // binds the parameters to the SQL query and tells the database what the parameters are
+
 ?>
