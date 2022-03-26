@@ -15,4 +15,8 @@ $query->bind_param("dissd", $amount, $rate, $converted_from, $converted_to, $con
 
 $query->execute(); // the database executes the statement after binding the values to the parameters
 
+$response = [];
+
+$response["status"] = "Congrats!"; // check if response succeeded
+
 ?>
