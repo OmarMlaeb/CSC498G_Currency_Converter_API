@@ -13,4 +13,6 @@ $query = $mysqli->prepare("INSERT INTO conversions (amount, rate, converted_from
 
 $query->bind_param("dissd", $amount, $rate, $converted_from, $converted_to, $converted_amount); // binds the parameters to the SQL query and tells the database what the parameters are
 
+$query->execute(); // the database executes the statement after binding the values to the parameters
+
 ?>
