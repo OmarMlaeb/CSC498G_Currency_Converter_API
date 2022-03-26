@@ -19,4 +19,8 @@ $response = [];
 
 $response["status"] = "Congrats!"; // check if response succeeded
 
+$json_response = json_encode($response); // encode the string to JSON format
+
+echo $json_response; // return the json response
+
 ?>
