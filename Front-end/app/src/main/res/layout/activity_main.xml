@@ -23,4 +23,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/quintessential"
+        android:gravity="center"
+        android:onClick="clickHere"
+        android:text="Click Here to \n Convert!"
+        android:textColor="@color/black"
+        android:textSize="45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
