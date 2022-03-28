@@ -102,4 +102,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Spinner
+        android:id="@+id/spinner_bar1"
+        style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="345dp"
+        android:gravity="center"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner_bar2"
+        style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="344dp"
+        android:gravity="center"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
