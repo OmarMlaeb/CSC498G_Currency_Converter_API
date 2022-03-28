@@ -1,10 +1,9 @@
 package com.lau.spring2022.currencyconverter;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class CurrencyConverter extends AppCompatActivity {
 
