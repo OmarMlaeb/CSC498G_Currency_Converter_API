@@ -4,9 +4,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class CurrencyConverter extends AppCompatActivity {
+
+    TextView rate;
+    EditText amount;
+    Spinner sp1;
+    Spinner sp2;
+    Button convert;
+    TextView result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +30,13 @@ public class CurrencyConverter extends AppCompatActivity {
         getSupportActionBar().hide();
 
         setContentView(R.layout.activity_currency_converter);
+
+        rate = (TextView) findViewById(R.id.rate);
+        amount = (EditText) findViewById(R.id.amount);
+        sp1 = (Spinner) findViewById(R.id.spinner_bar1);
+        sp2 = (Spinner) findViewById(R.id.spinner_bar2);
+        convert = (Button) findViewById(R.id.convert);
+        result = (TextView) findViewById(R.id.result);
     }
 
     // to calculate the conversion of the amount

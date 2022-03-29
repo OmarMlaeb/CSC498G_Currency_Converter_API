@@ -129,7 +129,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/calculate"
+        android:id="@+id/convert"
         android:layout_width="360dp"
         android:layout_height="50dp"
         android:layout_marginBottom="275dp"
