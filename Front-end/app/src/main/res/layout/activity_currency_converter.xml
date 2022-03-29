@@ -120,12 +120,27 @@
         style="@style/Base.Widget.AppCompat.Spinner.Underlined"
         android:layout_width="100dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="344dp"
+        android:layout_marginBottom="345dp"
         android:gravity="center"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.948"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/calculate"
+        android:layout_width="360dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="270dp"
+        android:onClick="convert"
+        android:text="Convert"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
