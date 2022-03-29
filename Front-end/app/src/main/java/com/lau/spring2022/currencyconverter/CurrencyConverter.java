@@ -1,6 +1,7 @@
 package com.lau.spring2022.currencyconverter;
 
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,5 +18,10 @@ public class CurrencyConverter extends AppCompatActivity {
         getSupportActionBar().hide();
 
         setContentView(R.layout.activity_currency_converter);
+    }
+
+    // to calculate the conversion of the amount
+    public void convert(View view) {
+
     }
 }
