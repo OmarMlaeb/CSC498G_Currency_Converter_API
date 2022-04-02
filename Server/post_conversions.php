@@ -14,7 +14,7 @@ $query = $mysqli->prepare("INSERT INTO conversions (amount, rate, converted_from
 if($converted_from === "USD" && $converted_to === "LBP") { // check the strings
     $converted_amount = $amount * $rate;
 } elseif($converted_from === "LBP" && $converted_to === "USD") {
-    $converted_amount = $amount / $rate;
+    $converted_amount = number_format($amount / $rate, 3, '.', ''); // show only three digits after decimal
 }
 
 $conversion = array("conversion_value"=>$converted_amount); // array having the value of converted amount and a pointer pointing to it
