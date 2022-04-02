@@ -1,5 +1,6 @@
 package com.lau.spring2022.currencyconverter;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -20,6 +21,20 @@ public class CurrencyConverter extends AppCompatActivity {
     Spinner sp2;
     Button convert;
     TextView result;
+
+    // any function that will run in parallel with the application, as the app wont be loading or waiting for the execution of that function
+    public class DownloadTask extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected String doInBackground(String... strings) { // pre execute
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s){ // when the api is executed
+
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +63,11 @@ public class CurrencyConverter extends AppCompatActivity {
         String[] to = {"LBP", "USD"};
         ArrayAdapter<String> adp2 = new ArrayAdapter<>(this,  androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, to);
         sp2.setAdapter(adp2);
+
+        String url = "http://192.168.0.105/Currency_Converter_Server/get_rate.php"; // url of the local host api getting the rate
+
+        DownloadTask task = new DownloadTask(); // create a DownloadTask object and assign it to task
+        task.execute(url); // executing the url
     }
 
     // to calculate the conversion of the amount
