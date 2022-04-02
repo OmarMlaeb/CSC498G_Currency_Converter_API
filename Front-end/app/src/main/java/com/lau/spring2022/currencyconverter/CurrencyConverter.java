@@ -110,6 +110,21 @@ public class CurrencyConverter extends AppCompatActivity {
         task.execute(url); // executing the url
     }
 
+    /* any function that will run in parallel with the application, as the app wont be loading or waiting for the execution of that function
+       and to send the data to the database, and to retrieve the conversion calculation from the api and display it on the screen */
+    public class DownloadTask2 extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected String doInBackground(String... urls) { // pre execute
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) { // when the api is executed
+
+        }
+    }
+
     // to calculate the conversion of the amount
     public void convert(View view) {
         String amount_value = amount.getText().toString(); // getting the amount as a string
@@ -117,6 +132,11 @@ public class CurrencyConverter extends AppCompatActivity {
 
         double parseAmount = Double.parseDouble(amount_value); // parsing the amount string to a double
         double parseRate = Double.parseDouble(rate_value); // parsing the rate string to a double
+
+        String url2 = "http://192.168.0.105/Currency_Converter_Server/post_conversions.php?"; // url of the local host of the api to send data to the database
+
+        DownloadTask2 task2 = new DownloadTask2();
+        task2.execute(url2);
 
     }
 }
