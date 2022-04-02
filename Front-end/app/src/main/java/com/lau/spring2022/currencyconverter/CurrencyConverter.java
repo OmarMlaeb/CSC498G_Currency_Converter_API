@@ -167,7 +167,9 @@ public class CurrencyConverter extends AppCompatActivity {
         double parse_rate = Double.parseDouble(rate_value); // parsing the rate string to a double
 
         // url of the local host of the api to send data to the database
-        String url2 = "http://192.168.0.100/Currency_Converter_Server/post_conversions.php?";
+        String url2 = "http://192.168.0.100/Currency_Converter_Server/post_conversions.php?amount=" + parse_amount +
+                "&rate=" + parse_rate + "&converted_from=" + sp1.getSelectedItem().toString() + "&converted_to=" + sp2.getSelectedItem().toString();
+        // concatenated the values to the api url to send the data to it
 
         DownloadTask2 task2 = new DownloadTask2();
         task2.execute(url2);
