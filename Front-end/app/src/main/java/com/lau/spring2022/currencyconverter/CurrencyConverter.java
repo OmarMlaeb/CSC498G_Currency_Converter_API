@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.json.JSONObject;
+
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -61,7 +63,16 @@ public class CurrencyConverter extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s){ // when the api is executed
+            super.onPostExecute(s);
 
+            try{
+                JSONObject json = new JSONObject(s); // object of JSONObject and assigned to json
+                String rate_value = json.getString("rate_value"); // convert the string to a json object
+                rate.setText(rate_value);
+
+            }catch(Exception e){
+                e.printStackTrace();
+            }
         }
     }
 
