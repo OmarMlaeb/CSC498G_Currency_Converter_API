@@ -13,6 +13,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 public class CurrencyConverter extends AppCompatActivity {
 
     TextView rate;
@@ -26,8 +31,32 @@ public class CurrencyConverter extends AppCompatActivity {
     public class DownloadTask extends AsyncTask<String, Void, String> {
 
         @Override
-        protected String doInBackground(String... strings) { // pre execute
-            return null;
+        protected String doInBackground(String... urls) { // pre execute
+            String result = "";
+            URL url; // manages all the information present in the URL string
+            HttpURLConnection http; // used to make a single request
+
+            // to catch any error that may be executed when we run the code
+            try{
+                url = new URL(urls[0]); // sending the url
+                http = (HttpURLConnection) url.openConnection(); // opening connection between the app and url (api)
+
+                InputStream in = http.getInputStream();
+                InputStreamReader reader = new InputStreamReader(in); // to read the output of the api
+                int data = reader.read(); // cursor to read the output of the api
+
+                while( data != -1){ // didn't reach the end of the file
+                    char current = (char) data; // take a character every time
+                    result += current; // append the character read to the string result
+                    data = reader.read(); // not to run to an infinite loop (move the cursor one character)
+
+                }
+            } catch(Exception e){
+                e.printStackTrace();
+                return null;
+            }
+
+            return result;
         }
 
         @Override
