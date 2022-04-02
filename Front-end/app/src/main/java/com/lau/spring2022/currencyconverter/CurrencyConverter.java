@@ -112,6 +112,11 @@ public class CurrencyConverter extends AppCompatActivity {
 
     // to calculate the conversion of the amount
     public void convert(View view) {
+        String amount_value = amount.getText().toString(); // getting the amount as a string
+        String rate_value = rate.getText().toString(); // getting the rate as a string
+
+        double parseAmount = Double.parseDouble(amount_value); // parsing the amount string to a double
+        double parseRate = Double.parseDouble(rate_value); // parsing the rate string to a double
 
     }
 }
