@@ -106,11 +106,12 @@
     <Spinner
         android:id="@+id/spinner_bar1"
         android:background="@drawable/spinner_outline"
-        android:layout_width="130dp"
+        android:layout_width="120dp"
         android:layout_height="45dp"
         android:layout_marginBottom="345dp"
         android:gravity="center"
         android:textSize="20dp"
+        android:textColor="#000000"
         android:dropDownVerticalOffset="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -119,16 +120,17 @@
 
     <Spinner
         android:id="@+id/spinner_bar2"
-        android:background="@drawable/spinner_outline"
-        android:layout_width="130dp"
+        android:layout_width="120dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="345dp"
-        android:gravity="center"
+        android:layout_marginBottom="344dp"
+        android:background="@drawable/spinner_outline"
         android:dropDownVerticalOffset="45dp"
-        android:textSize="20dp"
+        android:gravity="center"
+        android:textSize="25dp"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintHorizontal_bias="0.917"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
