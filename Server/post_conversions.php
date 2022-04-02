@@ -11,7 +11,17 @@ $converted_amount = $_POST["converted_amount"]; // list that contains all the co
 $query = $mysqli->prepare("INSERT INTO conversions (amount, rate, converted_from, converted_to, converted_amount) VALUES (?, ?, ?, ?, ?)"); // to insert values to the table "conversions" that the user will be converting on the app 
 // the values are "?" to prevent sql injections
 
-$query->bind_param("dissd", $amount, $rate, $converted_from, $converted_to, $converted_amount); // binds the parameters to the SQL query and tells the database what the parameters are
+if($converted_from === "USD" && $converted_to === "LBP") { // check the strings
+    $converted_amount = $amount * $rate;
+} elseif($converted_from === "LBP" && $converted_to === "USD") {
+    $converted_amount = $amount / $rate;
+}
+
+$conversion = array("conversion_value"=>$converted_amount); // array having the value of converted amount and a pointer pointing to it
+
+echo json_encode($conversion); // return the conversion to the font end as json
+
+$query->bind_param("ddssd", $amount, $rate, $converted_from, $converted_to, $converted_amount); // binds the parameters to the SQL query and tells the database what the parameters are
 
 $query->execute(); // the database executes the statement after binding the values to the parameters
 
