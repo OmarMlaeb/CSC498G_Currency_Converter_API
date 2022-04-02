@@ -55,6 +55,7 @@
         android:layout_marginTop="230dp"
         android:background="@drawable/edittext_state"
         android:ems="8"
+        android:inputType="numberDecimal"
         android:gravity="center"
         android:minHeight="48dp"
         android:textSize="25sp"
