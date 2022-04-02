@@ -104,7 +104,7 @@ public class CurrencyConverter extends AppCompatActivity {
         ArrayAdapter<String> adp2 = new ArrayAdapter<>(this,  androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, to);
         sp2.setAdapter(adp2);
 
-        String url = "http://192.168.0.105/Currency_Converter_Server/get_rate.php"; // url of the local host api getting the rate
+        String url = "http://192.168.0.100/Currency_Converter_Server/get_rate.php"; // url of the local host api getting the rate
 
         DownloadTask task = new DownloadTask(); // create a DownloadTask object and assign it to task
         task.execute(url); // executing the url
@@ -116,12 +116,36 @@ public class CurrencyConverter extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... urls) { // pre execute
-            return null;
+            String result = "";
+            URL url; // manages all the information present in the URL string
+            HttpURLConnection http; // used to make a single request
+
+            // to catch any error that may be executed when we run the code
+            try{
+                url = new URL(urls[0]); // sending the url
+                http = (HttpURLConnection) url.openConnection(); // opening connection between the app and url (api)
+
+                InputStream in = http.getInputStream();
+                InputStreamReader reader = new InputStreamReader(in); // to read the output of the api
+                int data = reader.read(); // cursor to read the output of the api
+
+                while( data != -1){ // didn't reach the end of the file
+                    char current = (char) data; // take a character every time
+                    result += current; // append the character read to the string result
+                    data = reader.read(); // not to run to an infinite loop (move the cursor one character)
+
+                }
+            } catch(Exception e){
+                e.printStackTrace();
+                return null;
+            }
+
+            return result;
         }
 
         @Override
         protected void onPostExecute(String s) { // when the api is executed
-
+            
         }
     }
 
@@ -130,10 +154,11 @@ public class CurrencyConverter extends AppCompatActivity {
         String amount_value = amount.getText().toString(); // getting the amount as a string
         String rate_value = rate.getText().toString(); // getting the rate as a string
 
-        double parseAmount = Double.parseDouble(amount_value); // parsing the amount string to a double
-        double parseRate = Double.parseDouble(rate_value); // parsing the rate string to a double
+        double parse_amount = Double.parseDouble(amount_value); // parsing the amount string to a double
+        double parse_rate = Double.parseDouble(rate_value); // parsing the rate string to a double
 
-        String url2 = "http://192.168.0.105/Currency_Converter_Server/post_conversions.php?"; // url of the local host of the api to send data to the database
+        // url of the local host of the api to send data to the database
+        String url2 = "http://192.168.0.100/Currency_Converter_Server/post_conversions.php?";
 
         DownloadTask2 task2 = new DownloadTask2();
         task2.execute(url2);
