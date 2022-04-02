@@ -145,7 +145,16 @@ public class CurrencyConverter extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) { // when the api is executed
-            
+            super.onPostExecute(s);
+
+            try{
+                JSONObject json = new JSONObject(s); // object of JSONObject and assigned to json
+                String conversion_value = json.getString("conversion_value"); // convert the string to a json object
+                result.setText(conversion_value);
+
+            }catch(Exception e){
+                e.printStackTrace();
+            }
         }
     }
 
