@@ -106,7 +106,7 @@ public class CurrencyConverter extends AppCompatActivity {
         ArrayAdapter<String> adp2 = new ArrayAdapter<>(this,  androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, to);
         sp2.setAdapter(adp2);
 
-        String url = "http://192.168.0.106/Currency_Converter_Server/get_rate.php"; // url of the local host api getting the rate
+        String url = "http://192.168.0.108/Currency_Converter_Server/get_rate.php"; // url of the local host api getting the rate
 
         DownloadTask task = new DownloadTask(); // create a DownloadTask object and assign it to task
         task.execute(url); // executing the url
@@ -178,7 +178,7 @@ public class CurrencyConverter extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "ERROR: converting to same currency", Toast.LENGTH_LONG).show();
         } else {
             // url of the local host of the api to send data to the database
-            String url2 = "http://192.168.0.106/Currency_Converter_Server/post_conversions.php?amount=" + parse_amount +
+            String url2 = "http://192.168.0.108/Currency_Converter_Server/post_conversions.php?amount=" + parse_amount +
                     "&rate=" + parse_rate + "&converted_from=" + sp1.getSelectedItem().toString() + "&converted_to=" + sp2.getSelectedItem().toString();
             // concatenated the values to the api url to send the data to it
 
