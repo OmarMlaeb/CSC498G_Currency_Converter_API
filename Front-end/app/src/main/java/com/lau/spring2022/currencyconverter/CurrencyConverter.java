@@ -2,6 +2,7 @@ package com.lau.spring2022.currencyconverter;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -104,7 +106,7 @@ public class CurrencyConverter extends AppCompatActivity {
         ArrayAdapter<String> adp2 = new ArrayAdapter<>(this,  androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, to);
         sp2.setAdapter(adp2);
 
-        String url = "http://192.168.0.100/Currency_Converter_Server/get_rate.php"; // url of the local host api getting the rate
+        String url = "http://192.168.0.106/Currency_Converter_Server/get_rate.php"; // url of the local host api getting the rate
 
         DownloadTask task = new DownloadTask(); // create a DownloadTask object and assign it to task
         task.execute(url); // executing the url
@@ -166,13 +168,22 @@ public class CurrencyConverter extends AppCompatActivity {
         double parse_amount = Double.parseDouble(amount_value); // parsing the amount string to a double
         double parse_rate = Double.parseDouble(rate_value); // parsing the rate string to a double
 
-        // url of the local host of the api to send data to the database
-        String url2 = "http://192.168.0.100/Currency_Converter_Server/post_conversions.php?amount=" + parse_amount +
-                "&rate=" + parse_rate + "&converted_from=" + sp1.getSelectedItem().toString() + "&converted_to=" + sp2.getSelectedItem().toString();
-        // concatenated the values to the api url to send the data to it
+        if (amount_value.equals("")) {
+            amount.setError("Enter an Amount to Convert!");
+        } else if(rate_value.isEmpty()){
+            rate.setError("Wait or Please Try Again Later");
+        } else if(sp1.getSelectedItem().toString().equals("LBP") && sp2.getSelectedItem().toString().equals("LBP")){
+            Toast.makeText(getApplicationContext(), "ERROR: converting to same currency", Toast.LENGTH_LONG).show();
+        } else if(sp1.getSelectedItem().toString().equals("USD") && sp2.getSelectedItem().toString().equals("USD")){
+            Toast.makeText(getApplicationContext(), "ERROR: converting to same currency", Toast.LENGTH_LONG).show();
+        } else {
+            // url of the local host of the api to send data to the database
+            String url2 = "http://192.168.0.106/Currency_Converter_Server/post_conversions.php?amount=" + parse_amount +
+                    "&rate=" + parse_rate + "&converted_from=" + sp1.getSelectedItem().toString() + "&converted_to=" + sp2.getSelectedItem().toString();
+            // concatenated the values to the api url to send the data to it
 
-        DownloadTask2 task2 = new DownloadTask2();
-        task2.execute(url2);
-
+            DownloadTask2 task2 = new DownloadTask2();
+            task2.execute(url2);
+        }
     }
 }
