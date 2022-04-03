@@ -7,7 +7,7 @@ $amount = $_GET["amount"]; // list that contains all the amounts sent from the f
 $rate = $_GET["rate"]; // list that contains all the rates sent from the front-end
 $converted_from = $_GET["converted_from"]; // list that contains all the strings (USD or LBP) sent from the front-end
 $converted_to = $_GET["converted_to"]; // list that contains all the strings (USD or LBP) sent from the front-end
-$converted_amount = $_GET["converted_amount"]; // list that contains all the converted amounts sent from the front-end
+// (removed it since we're not getting it from the front end as a value) $converted_amount = $_GET["converted_amount"]; // list that contains all the converted amounts sent from the front-end
 
 $query = $mysqli->prepare("INSERT INTO conversions (amount, rate, converted_from, converted_to, converted_amount) VALUES (?, ?, ?, ?, ?)"); // to insert values to the table "conversions" that the user will be converting on the app 
 // the values are "?" to prevent sql injections
